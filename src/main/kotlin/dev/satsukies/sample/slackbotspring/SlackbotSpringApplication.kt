@@ -1,11 +1,8 @@
 package dev.satsukies.sample.slackbotspring
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import org.springframework.boot.web.servlet.ServletComponentScan
 
 @SpringBootApplication
+@ServletComponentScan
 class SlackbotSpringApplication
-
-fun main(args: Array<String>) {
-	runApplication<SlackbotSpringApplication>(*args)
-}

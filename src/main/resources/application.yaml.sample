@@ -4,3 +4,12 @@ spring:
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+app:
+  slack:
+    bot-token: {xoxb-から始まるtokenを入れる}
+    signing-secret: {signing secretを入れる}
+
+# boltが使ってるtomcat serverのリッスンポートを変えるための設定
+server:
+  port: 3000
