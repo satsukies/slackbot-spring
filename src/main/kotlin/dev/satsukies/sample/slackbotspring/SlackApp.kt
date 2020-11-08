@@ -12,12 +12,21 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.util.regex.Pattern
 
+/**
+ * Slackと連携して動作するアプリケーションクラス
+ * application.yamlに定義されたSlackBotTokenとSigningSecretを読み出して、
+ * コンストラクタで渡している。
+ */
 @Configuration
 class SlackApp(
   @Value("\${app.slack.bot-token}") val token: String,
   @Value("\${app.slack.signing-secret}") val secret: String
 ) {
 
+  /**
+   * 環境変数でtokenとsecretを設定するのではなく
+   * application.yamlで定義された値を読み出して使うアプローチを取っている
+   */
   @Bean
   fun loadAppConfig(): AppConfig {
     return AppConfig.builder()
