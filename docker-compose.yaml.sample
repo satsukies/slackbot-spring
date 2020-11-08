@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:8.0.19
+    container_name: slackbot-spring-mysql
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "{任意のポート}:3306"
+    volumes:
+      - slackbot-spring-db:/var/lib/mysql
+      - $PWD/confs/mysql:/etc/mysql/conf.d
+
+volumes:
+  slackbot-spring-db:
